@@ -1,0 +1,289 @@
+:root {
+    --primary: #1D2636; /* Navy Blue */
+    --secondary: #C5A059; /* Gold/Tan */
+    --accent: #A68648;
+    --bg-gradient: linear-gradient(135deg, #eaddca 0%, #c5a059 100%);
+    --glass: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(29, 38, 54, 0.1);
+    --text: #1D2636;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Loader */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Main Container */
+.main-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glass Card */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    max-width: 500px;
+    width: 100%;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Envelope Animation */
+.envelope-wrapper {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.envelope {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    background: var(--secondary);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-top: 60px solid var(--accent);
+    z-index: 3;
+    transform-origin: top;
+    transition: transform 0.4s ease;
+}
+
+.envelope-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary);
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.envelope-seal {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.heart {
+    color: white;
+    font-size: 14px;
+}
+
+/* Typography */
+.title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--primary);
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary);
+    color: var(--secondary);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(29, 38, 54, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(29, 38, 54, 0.5);
+    background: #2a374d;
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Invitation Reveal */
+.invitation-reveal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.invitation-content {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    animation: zoomIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.image-container {
+    background: var(--secondary);
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
+    position: relative;
+    border: 1px solid rgba(29, 38, 54, 0.2);
+}
+
+/* Decorative Borders */
+.image-container::before,
+.image-container::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: var(--primary);
+}
+
+.image-container::before {
+    top: 15px;
+}
+
+.image-container::after {
+    bottom: 15px;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+/* Glass Morphism Utility */
+.glass-morphism {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.hidden {
+    display: none;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .title { font-size: 2rem; }
+    .glass-card { padding: 30px 20px; }
+}

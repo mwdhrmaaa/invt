@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Invited! | Birthday Celebration</title>
+    <meta name="description" content="A special birthday invitation for a special friend.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+    </div>
+
+    <main class="main-container">
+        <!-- Landing Section -->
+        <section class="landing" id="landing-section">
+            <div class="glass-card fade-in">
+                <div class="envelope-wrapper" id="envelope">
+                    <div class="envelope">
+                        <div class="envelope-flap"></div>
+                        <div class="envelope-body"></div>
+                        <div class="envelope-seal">
+                            <span class="heart">✨</span>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="title">You're Cordially Invited</h1>
+                <p class="subtitle">A special celebration awaits your presence</p>
+                <button class="btn-primary" id="open-btn">Open Invitation</button>
+            </div>
+        </section>
+
+        <!-- Invitation Section -->
+        <section class="invitation-reveal hidden" id="invitation-section">
+            <div class="invitation-content">
+                <div class="image-container glass-morphism">
+                    <img src="assets/placeholder.png" alt="Birthday Invitation" id="invitation-img">
+                </div>
+                <div class="actions">
+                    <button class="btn-secondary" id="back-btn">Back</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -8,20 +8,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
 
     // Hide Loader
-    window.addEventListener('load', () => {
+    const hideLoader = () => {
         setTimeout(() => {
-            loader.style.opacity = '0';
-            setTimeout(() => loader.style.display = 'none', 500);
-        }, 1000);
-    });
+            if (loader) {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 500);
+            }
+        }, 500);
+    };
+
+    if (document.readyState === 'complete') {
+        hideLoader();
+    } else {
+        window.addEventListener('load', hideLoader);
+    }
 
     // Open Invitation
     openBtn.addEventListener('click', () => {
+        console.log('Open button clicked');
         landingSection.classList.add('fade-out');
         
         setTimeout(() => {
             landingSection.classList.add('hidden');
             invitationSection.classList.remove('hidden');
+            console.log('Invitation section revealed');
             startConfetti();
         }, 500);
     });
